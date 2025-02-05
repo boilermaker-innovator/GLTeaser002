@@ -1,3 +1,285 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GL Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f6f8fa;
+            color: #24292e;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        .demo-link {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .demo-link:hover {
+            text-decoration: underline;
+        }
+
+        .gl-text {
+            color: #0366d6;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .preview-box {
+            display: none;
+            border: 2px solid #0366d6;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 16px;
+            background: white;
+        }
+
+        .tab-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background: #0366d6;
+            color: white;
+            border-color: #0366d6;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .feature-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0366d6;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e1e4e8;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Introduction GL -->
+        <div class="section">
+            <a href="#what-is-gl" class="demo-link">What is GL?</a> <span class="gl-text" onclick="togglePreview('intro')">GL</span>
+
+            <div class="preview-box" id="intro">
+                <div class="tab-bar">
+                    <button class="tab active" onclick="switchTab('about', 'intro')">About</button>
+                    <button class="tab" onclick="switchTab('preview', 'intro')">Preview</button>
+                    <button class="tab" onclick="switchTab('mobile', 'intro')">Mobile</button>
+                    <button class="tab" onclick="switchTab('features', 'intro')">Features</button>
+                </div>
+                
+                <div id="about-intro" class="tab-content active">
+                    <h3>Quick Mobile Previews</h3>
+                    <p>GL saves time on mobile by showing what's behind links before you click. Preview content, photos, and videos without loading full pages.</p>
+                </div>
+                
+                <div id="preview-intro" class="tab-content">
+                    <h3>What You See</h3>
+                    <ul class="feature-list">
+                        <li>Quick summaries of linked content</li>
+                        <li>Photos and videos when available</li>
+                        <li>Key information at a glance</li>
+                        <li>Related links you might like</li>
+                    </ul>
+                </div>
+                
+                <div id="mobile-intro" class="tab-content">
+                    <h3>Perfect for Mobile</h3>
+                    <ul class="feature-list">
+                        <li>Save mobile data - preview before loading full pages</li>
+                        <li>Easy touch navigation with tabs</li>
+                        <li>Quick access to key information</li>
+                        <li>Mobile-optimized viewing</li>
+                    </ul>
+                </div>
+                
+                <div id="features-intro" class="tab-content">
+                    <h3>Key Features</h3>
+                    <ul class="feature-list">
+                        <li>Works on any device</li>
+                        <li>Fast loading previews</li>
+                        <li>Simple navigation</li>
+                        <li>Share preview content easily</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Use Case -->
+        <div class="section">
+            <a href="#use-cases" class="demo-link">See GL in Action</a> <span class="gl-text" onclick="togglePreview('usecase')">GL</span>
+
+            <div class="preview-box" id="usecase">
+                <div class="tab-bar">
+                    <button class="tab active" onclick="switchTab('jobs', 'usecase')">Jobs</button>
+                    <button class="tab" onclick="switchTab('products', 'usecase')">Products</button>
+                    <button class="tab" onclick="switchTab('articles', 'usecase')">Articles</button>
+                </div>
+                
+                <div id="jobs-usecase" class="tab-content active">
+                    <h3>Job Listings</h3>
+                    <ul class="feature-list">
+                        <li>Quick view of salary and requirements</li>
+                        <li>Key responsibilities at a glance</li>
+                        <li>Company information and culture</li>
+                        <li>Application process preview</li>
+                    </ul>
+                </div>
+                
+                <div id="products-usecase" class="tab-content">
+                    <h3>Product Pages</h3>
+                    <ul class="feature-list">
+                        <li>Price and availability check</li>
+                        <li>Key features and specifications</li>
+                        <li>Product images and videos</li>
+                        <li>Customer reviews summary</li>
+                    </ul>
+                </div>
+                
+                <div id="articles-usecase" class="tab-content">
+                    <h3>News Articles</h3>
+                    <ul class="feature-list">
+                        <li>Article summary and key points</li>
+                        <li>Publication date and author</li>
+                        <li>Related stories and topics</li>
+                        <li>Reader comments preview</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Info -->
+        <div class="section">
+            <a href="#technical" class="demo-link">Technical Implementation</a> <span class="gl-text" onclick="togglePreview('tech')">GL</span>
+
+            <div class="preview-box" id="tech">
+                <div class="tab-bar">
+                    <button class="tab active" onclick="switchTab('setup', 'tech')">Setup</button>
+                    <button class="tab" onclick="switchTab('customize', 'tech')">Customize</button>
+                    <button class="tab" onclick="switchTab('integrate', 'tech')">Integrate</button>
+                </div>
+                
+                <div id="setup-tech" class="tab-content active">
+                    <h3>Quick Setup</h3>
+                    <ul class="feature-list">
+                        <li>Simple implementation with standard HTML</li>
+                        <li>Works with existing link structures</li>
+                        <li>Mobile-ready out of the box</li>
+                        <li>No complex dependencies</li>
+                    </ul>
+                </div>
+                
+                <div id="customize-tech" class="tab-content">
+                    <h3>Customization Options</h3>
+                    <ul class="feature-list">
+                        <li>Custom styling and themes</li>
+                        <li>Flexible content structure</li>
+                        <li>Custom tab configurations</li>
+                        <li>API integration ready</li>
+                    </ul>
+                </div>
+                
+                <div id="integrate-tech" class="tab-content">
+                    <h3>Integration Guide</h3>
+                    <ul class="feature-list">
+                        <li>Works with major frameworks</li>
+                        <li>Easy CMS integration</li>
+                        <li>Database connectivity</li>
+                        <li>Analytics support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePreview(id) {
+            const preview = document.getElementById(id);
+            preview.style.display = preview.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function switchTab(tabName, section) {
+            const sectionEl = document.getElementById(section);
+            
+            // Hide all tab content in this section
+            sectionEl.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tabs in this section
+            sectionEl.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-' + section).classList.add('active');
+            
+            // Activate selected tab
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html
+
+
+
 this is one application I thought of something simalar to tis when i first started thinking of Gifylink years ago?
 
 

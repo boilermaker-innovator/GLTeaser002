@@ -22,7 +22,297 @@
 
 <!-- Canonical -->
 <link rel="canonical" href="https://your-domain.com/gifylink-article">
+next 4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GL for Encyclopedia Style Content</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Linux Libertine', 'Georgia', 'Times', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #202122;
+        }
 
+        .wiki-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border: 1px solid #a7d7f9;
+            border-radius: 2px;
+        }
+
+        .wiki-header {
+            border-bottom: 1px solid #a2a9b1;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+            border-bottom: 1px solid #a2a9b1;
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        .wiki-link {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .wiki-link:hover {
+            text-decoration: underline;
+        }
+
+        .gl-text {
+            color: #0645ad;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .preview-box {
+            display: none;
+            border: 1px solid #a7d7f9;
+            border-radius: 2px;
+            padding: 16px;
+            margin: 16px 0;
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .tab-bar {
+            display: flex;
+            gap: 1px;
+            margin-bottom: 16px;
+            background: #f8f9fa;
+            border: 1px solid #a7d7f9;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            flex-grow: 1;
+            font-size: 14px;
+        }
+
+        .tab.active {
+            background: #eaecf0;
+            font-weight: bold;
+            border-bottom: 2px solid #0645ad;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 16px;
+            background: #ffffff;
+            border-radius: 2px;
+            font-size: 0.95em;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .wiki-section {
+            margin: 20px 0;
+        }
+
+        .reference {
+            font-size: 0.9em;
+            color: #54595d;
+        }
+
+        .info-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .info-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0645ad;
+        }
+
+        blockquote {
+            margin: 10px 0;
+            padding: 10px 20px;
+            border-left: 3px solid #a7d7f9;
+            background: #f8f9fa;
+            color: #454545;
+        }
+    </style>
+</head>
+<body>
+    <div class="wiki-container">
+        <div class="wiki-header">
+            <h1>Digital Communication</h1>
+        </div>
+
+        <div class="wiki-section">
+            <p>
+                Digital communication has transformed how we share information. One of the most significant developments was the creation of 
+                <a href="#hyperlink" class="wiki-link">hyperlinks</a> <span class="gl-text" onclick="togglePreview('hyperlink')">GL</span>, 
+                which revolutionized online navigation.
+            </p>
+
+            <div class="preview-box" id="hyperlink">
+                <div class="tab-bar">
+                    <button class="tab active" onclick="switchTab('summary', 'hyperlink')">Summary</button>
+                    <button class="tab" onclick="switchTab('technical', 'hyperlink')">Technical</button>
+                    <button class="tab" onclick="switchTab('history', 'hyperlink')">History</button>
+                </div>
+                
+                <div id="summary-hyperlink" class="tab-content active">
+                    <h3>Hyperlink</h3>
+                    <p>A hyperlink is a reference to data that can be directly followed by clicking. The concept was fundamental to the development of the World Wide Web.</p>
+                    <blockquote>First implemented in 1965, hyperlinks became widely used with the rise of the internet.</blockquote>
+                </div>
+                
+                <div id="technical-hyperlink" class="tab-content">
+                    <h3>Technical Implementation</h3>
+                    <ul class="info-list">
+                        <li>HTML anchor tags define hyperlinks</li>
+                        <li>Can link to any web resource</li>
+                        <li>Supports various protocols</li>
+                        <li>Modern enhancements like GL previews</li>
+                    </ul>
+                </div>
+                
+                <div id="history-hyperlink" class="tab-content">
+                    <h3>Historical Development</h3>
+                    <ul class="info-list">
+                        <li>1965: First hyperlink system</li>
+                        <li>1989: Used in early World Wide Web</li>
+                        <li>1993: Mosaic browser popularizes links</li>
+                        <li>2024: Enhanced with GL previews</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="wiki-section">
+            <p>
+                Modern developments include 
+                <a href="#mobile-browsing" class="wiki-link">mobile browsing</a> <span class="gl-text" onclick="togglePreview('mobile')">GL</span> 
+                and enhanced preview systems.
+            </p>
+
+            <div class="preview-box" id="mobile">
+                <div class="tab-bar">
+                    <button class="tab active" onclick="switchTab('overview', 'mobile')">Overview</button>
+                    <button class="tab" onclick="switchTab('features', 'mobile')">Features</button>
+                    <button class="tab" onclick="switchTab('impact', 'mobile')">Impact</button>
+                </div>
+                
+                <div id="overview-mobile" class="tab-content active">
+                    <h3>Mobile Browsing</h3>
+                    <p>Mobile browsing refers to accessing web content via smartphones and tablets. It has become the primary method of internet access globally.</p>
+                    <blockquote>As of 2024, over 60% of web traffic comes from mobile devices.</blockquote>
+                </div>
+                
+                <div id="features-mobile" class="tab-content">
+                    <h3>Key Features</h3>
+                    <ul class="info-list">
+                        <li>Touch-optimized interfaces</li>
+                        <li>Responsive design</li>
+                        <li>Mobile-first development</li>
+                        <li>Enhanced preview systems like GL</li>
+                    </ul>
+                </div>
+                
+                <div id="impact-mobile" class="tab-content">
+                    <h3>Global Impact</h3>
+                    <ul class="info-list">
+                        <li>Increased internet accessibility</li>
+                        <li>Changed user behavior patterns</li>
+                        <li>New development standards</li>
+                        <li>Evolution of content consumption</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference">
+            <p>
+                Reference: 
+                <a href="#reference1" class="wiki-link">Digital Evolution Report 2024</a> <span class="gl-text" onclick="togglePreview('reference')">GL</span>
+            </p>
+
+            <div class="preview-box" id="reference">
+                <div class="tab-bar">
+                    <button class="tab active" onclick="switchTab('cite', 'reference')">Citation</button>
+                    <button class="tab" onclick="switchTab('excerpt', 'reference')">Excerpt</button>
+                    <button class="tab" onclick="switchTab('details', 'reference')">Details</button>
+                </div>
+                
+                <div id="cite-reference" class="tab-content active">
+                    <h3>Citation Information</h3>
+                    <p>"Digital Evolution Report 2024", Internet Society, accessed February 2024</p>
+                    <blockquote>Comprehensive analysis of digital communication trends and developments</blockquote>
+                </div>
+                
+                <div id="excerpt-reference" class="tab-content">
+                    <h3>Key Excerpts</h3>
+                    <ul class="info-list">
+                        <li>Mobile usage statistics</li>
+                        <li>Evolution of hyperlinks</li>
+                        <li>Modern browsing patterns</li>
+                        <li>Future development trends</li>
+                    </ul>
+                </div>
+                
+                <div id="details-reference" class="tab-content">
+                    <h3>Publication Details</h3>
+                    <ul class="info-list">
+                        <li>Published: January 2024</li>
+                        <li>Authors: Internet Society Research Team</li>
+                        <li>Pages: 245</li>
+                        <li>Available online and in print</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePreview(id) {
+            const preview = document.getElementById(id);
+            preview.style.display = preview.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function switchTab(tabName, section) {
+            const sectionEl = document.getElementById(section);
+            sectionEl.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            sectionEl.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabName + '-' + section).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
 
 next 3
 

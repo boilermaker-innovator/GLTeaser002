@@ -23,6 +23,169 @@
 <!-- Canonical -->
 <link rel="canonical" href="https://your-domain.com/gifylink-article">
 
+
+6 next
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple iTeaser</title>
+    <style>
+        body { 
+            padding: 20px; 
+            font-family: Arial; 
+            background: #f5f5f7;
+        }
+        .container { 
+            display: flex; 
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .form, .preview { 
+            padding: 20px; 
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        textarea { 
+            width: 100%; 
+            height: 100px; 
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input { 
+            width: 100%; 
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        button { 
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+        .create { background: #007AFF; }
+        .prefill { background: #34C759; }
+        
+        .tab-container { 
+            display: flex; 
+            gap: 10px; 
+            margin: 10px 0; 
+        }
+        .tab {
+            padding: 8px 15px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .tab.active { 
+            background: #007AFF; 
+            color: white; 
+        }
+        .tab-content { 
+            display: none; 
+            padding: 15px;
+            background: #f5f5f7;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .tab-content.active { 
+            display: block; 
+        }
+        h2 {
+            color: #007AFF;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Create iTeaser</h2>
+            <div>
+                <label>Title</label>
+                <input type="text" id="title" placeholder="Enter title">
+            </div>
+            <div>
+                <label>Impact Content</label>
+                <textarea id="tab1" placeholder="Enter impact content"></textarea>
+            </div>
+            <div>
+                <label>Story Content</label>
+                <textarea id="tab2" placeholder="Enter story content"></textarea>
+            </div>
+            <div>
+                <label>Action Content</label>
+                <textarea id="tab3" placeholder="Enter action content"></textarea>
+            </div>
+            <button onclick="prefill()" class="prefill">Prefill</button>
+            <button onclick="createPreview()" class="create">Create Preview</button>
+        </div>
+        
+        <div class="preview">
+            <h2>Preview</h2>
+            <div id="previewArea"></div>
+        </div>
+    </div>
+
+    <script>
+        function prefill() {
+            document.getElementById('title').value = "Save The Ocean";
+            document.getElementById('tab1').value = "🌊 Last year, we removed over 500,000 kg of plastic from our oceans and beaches. Your support can help us do even more.";
+            document.getElementById('tab2').value = "Meet Sarah, a sea turtle rescued from abandoned fishing nets. Thanks to our volunteers, she's now back in her ocean home. Every donation helps save more marine life.";
+            document.getElementById('tab3').value = "Join our mission! Donate now or sign up for our next beach cleanup. Together, we can make our oceans cleaner and safer for all marine life.";
+        }
+
+        function createPreview() {
+            const title = document.getElementById('title').value;
+            const tab1 = document.getElementById('tab1').value;
+            const tab2 = document.getElementById('tab2').value;
+            const tab3 = document.getElementById('tab3').value;
+
+            const preview = document.getElementById('previewArea');
+            preview.innerHTML = `
+                <h3>${title}</h3>
+                <div class="tab-container">
+                    <button class="tab active" onclick="switchTab(0)">Impact</button>
+                    <button class="tab" onclick="switchTab(1)">Story</button>
+                    <button class="tab" onclick="switchTab(2)">Action</button>
+                </div>
+                <div class="tab-content active">${tab1}</div>
+                <div class="tab-content">${tab2}</div>
+                <div class="tab-content">${tab3}</div>
+            `;
+        }
+
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            tabs[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>
 next 5
 today I was thinking about GL but who knows what a GL or Gifylink is, then I remembered the other day this was one of many of claudes suggestions
 

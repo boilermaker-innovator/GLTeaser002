@@ -32,6 +32,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple iTeaser</title>
     <style>
+        body { 
+            padding: 20px; 
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f5f7;
+            color: #333;
+            line-height: 1.5;
+        }
+        .container { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .form, .preview { 
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+        input, textarea { 
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .prefill {
+            background: #34C759;
+            color: white;
+        }
+        .create {
+            background: #007AFF;
+            color: white;
+        }
+        .preview-content {
+            padding: 15px 0;
+        }
+        .preview-section {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .tab {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab.active {
+            background: #007AFF;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Create iTeaser</h2>
+            <input type="text" id="title" placeholder="Title">
+            <textarea id="tab1" placeholder="Impact Content"></textarea>
+            <textarea id="tab2" placeholder="Story Content"></textarea>
+            <textarea id="tab3" placeholder="Action Content"></textarea>
+            <div class="button-group">
+                <button onclick="prefillForm()" class="prefill">Prefill</button>
+                <button onclick="showPreview()" class="create">Create Preview</button>
+            </div>
+        </div>
+        
+        <div class="preview">
+            <h2>Preview</h2>
+            <div id="previewArea"></div>
+        </div>
+    </div>
+
+    <script>
+        function prefillForm() {
+            document.getElementById('title').value = "Help Us Save The Ocean";
+            document.getElementById('tab1').value = "🌊 Last year, we removed over 500,000 kg of plastic from our oceans and beaches. Your support can help us do even more.";
+            document.getElementById('tab2').value = "Meet Sarah, a sea turtle rescued from abandoned fishing nets. Thanks to our volunteers, she's now back in her ocean home. Every donation helps save more marine life.";
+            document.getElementById('tab3').value = "Join our mission! Donate now or sign up for our next beach cleanup. Together, we can make our oceans cleaner and safer for all marine life. Visit oceancleanup.org";
+        }
+
+        function showPreview() {
+            const title = document.getElementById('title').value;
+            const tab1 = document.getElementById('tab1').value;
+            const tab2 = document.getElementById('tab2').value;
+            const tab3 = document.getElementById('tab3').value;
+            
+            const previewArea = document.getElementById('previewArea');
+            previewArea.innerHTML = `
+                <h2>${title}</h2>
+                <div class="tab-container">
+                    <button class="tab active" onclick="switchTab(0)">Impact</button>
+                    <button class="tab" onclick="switchTab(1)">Story</button>
+                    <button class="tab" onclick="switchTab(2)">Action</button>
+                </div>
+                <div class="tab-content active">${tab1}</div>
+                <div class="tab-content">${tab2}</div>
+                <div class="tab-content">${tab3}</div>
+            `;
+        }
+
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            tabs[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple iTeaser</title>
+    <style>
         /* Previous styles remain the same */
         body { 
             padding: 20px; 
